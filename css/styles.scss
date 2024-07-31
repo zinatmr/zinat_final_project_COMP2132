@@ -1,0 +1,657 @@
+@charset "utf-8";
+
+// SASS variables
+$main-color: rgb(58, 101, 90);
+$nav-li-color: rgb(15, 51, 37);
+$burgandy: rgb(255, 210, 210);
+$purple: rgb(250, 138, 180);
+$second-color: rgba(208, 216, 225, 0.3);
+$header-color: rgb(23, 23, 245);
+$dark-color: #242424;
+$light-color: rgba(245, 245, 245, 0.3);
+$orange-color: rgb(255, 165, 5);
+$beige-color: rgb(200, 180, 93);
+$light-green-color: rgba(195, 255, 100, 0.5);
+$green: rgb(22, 75, 22);
+$box-color-1: rgba(173, 216, 230);
+$box-color-2: rgb(167, 128, 240);
+$box-color-3: rgba(144, 238, 144);
+$box-color-4: rgba(255, 239, 213);
+$primary-color: rgb(217, 0, 255);
+$primary-color-hover: rgb(152, 179, 0);
+$primary-color-active: rgb(0, 64, 133);
+$darker-background: rgba(0, 0, 0, 0.7);
+
+// Mixin for box shadow
+@mixin box-shadow($color) {
+  box-shadow: 0px 3px 8px 0px $color;
+}
+
+// Mixin for transition
+@mixin transition($property, $duration, $ease) {
+  transition: $property $duration $ease;
+}
+
+html {
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background: $green;
+  color: $dark-color;
+  font-size: 16px;
+  line-height: 1.1em;
+}
+
+#game-container {
+  max-width: 990px;
+  margin: 0 auto;
+  padding: 1px;
+  background: url('../images/background_image.jpg') no-repeat center center;
+  background-size: cover;
+  @include box-shadow($dark-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  color: $header-color;
+  padding: 15px;
+  border-bottom: dotted 3px $header-color;
+  @include box-shadow($main-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: larger;
+  font-weight: bold;
+}
+
+header div {
+  flex: 1;
+  text-align: center;
+}
+
+header h2 {
+  font-size: 2em;
+  color: $orange-color;
+  text-shadow: 1px 1px 2px $dark-color;
+}
+
+header h1 {
+  margin: 0;
+  line-height: 1;
+  text-shadow: 1px 1px 0px $light-color;
+}
+
+.decoration {
+  padding: 16px;
+  margin-top: 10px;
+}
+
+.section-header {
+  color: $dark-color;
+  padding: 18px;
+  @include box-shadow($main-color);
+  border-bottom: dotted 1px $second-color;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-header h3 {
+  margin: 0;
+  color: $dark-color;
+  text-align: left;
+  flex: 1;
+}
+
+.show-hide-button {
+  background-color: $orange-color;
+  text-align: right;
+  color: $dark-color;
+  border: 1px solid $dark-color;
+  padding: 5px 8px;
+  border-radius: 5px;
+  @include transition(background-color, 0.3s, ease);
+}
+
+.show-hide-button:hover {
+  background-color: darken($main-color, 10%);
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: $dark-color;
+  margin: 20px 0;
+}
+
+footer {
+  padding: 20px;
+  background-color: $beige-color;
+  border-top: solid 1px $second-color;
+  @include box-shadow($main-color);
+  color: $main-color;
+  display: flex;
+  justify-content: flex-start;
+}
+
+footer p {
+  font-size: 1.15em;
+  line-height: 1em;
+  margin: 0;
+  position: relative;
+  padding-left: 20px;
+}
+
+.button_section {
+  flex: 1 1 100%;
+  margin-top: 30px;
+}
+
+main {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.Player_data_container_box {
+  flex: 1 1 45%;
+  margin: 10px;
+  background-color: $light-color;
+  padding: 20px;
+  border-radius: 10px;
+  @include box-shadow($dark-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.main_header_players {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.dice_info_first_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dice_info_second_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dice_info_box {
+  background-color: $box-color-1;
+  border: 1px solid $dark-color;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.dice_info_box:nth-child(2) {
+  background-color: $box-color-2;
+}
+
+.dice_info_box:nth-child(3) {
+  background-color: $box-color-3;
+}
+
+.dice_info_box:nth-child(4) {
+  background-color: $box-color-4;
+}
+
+.dice_info_box h3 {
+  margin-bottom: 10px;
+}
+
+.dice_info_box div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dice_info_box p {
+  margin: 0 10px;
+  font-size: 1.2em;
+}
+
+.score {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: $main-color;
+  color: $header-color;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  @include transition(background-color, 0.3s, ease);
+}
+
+.button:hover {
+  background-color: $purple;
+}
+
+.result-class {
+  margin-top: 20px;
+  font-size: 18px;
+  color: $dark-color;
+}
+
+.instruction-class {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $box-color-1;
+  padding: 20px;
+  border-radius: 10px;
+  @include box-shadow($dark-color);
+  z-index: 1000;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close {
+  align-self: flex-end;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.popup h3 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.popup p {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.popup .button {
+  padding: 5px 9px;
+  margin: 5px;
+  font-size: 16px;
+  font-weight: bolder;
+  background-color: $box-color-1;
+  color: $header-color;
+  border: 3px outset $header-color;
+  border-radius: 5px;
+  cursor: pointer;
+  @include transition(background-color, 0.3s, ease);
+}
+
+.popup .button:hover {
+  background-color: $purple;
+  padding: 8px 13px;
+  border: 5px inset $header-color;
+}
+
+/* Overlay for the popup */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $darker-background;
+  z-index: 999; /* Ensure it covers everything else */
+  display: none; /* Hidden by default */
+}
+
+/* Blur effect for the game container */
+.blur {
+  filter: blur(5px); /* Adjust the blur amount as needed */
+}
+
+.Player_data_container_box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-weight: bold;
+  color: $green;
+  gap: 6px;
+  margin: 8px;
+  padding: 12px;
+}
+
+.Player_data_container_box:nth-of-type(1) {
+  background-color: $box-color-3;
+}
+
+.Player_data_container_box:nth-of-type(2) {
+  background-color: $box-color-2;
+}
+
+.main_header_players {
+  text-align: center;
+  font-size: 1.4em;
+}
+
+.dice_info_first_container {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  flex-wrap: wrap;
+}
+
+.dice_info_second_container {
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid $dark-color;
+  color: $header-color;
+  padding: 10px;
+}
+
+.dice_info_second_container:nth-of-type(1) {
+  background-color: $burgandy;
+}
+
+.dice_info_second_container:nth-of-type(2) {
+  background-color: $purple;
+}
+
+.dice_info_second_container > div:first-child {
+  text-align: center;
+  background-color: $beige-color;
+  margin-bottom: 0px;
+  font-weight: bold;
+  flex: 1 1 100%;
+}
+
+.dice_third_container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px;
+}
+
+.last_box_inside_game_container_box > p {
+  font-size: larger;
+  text-align: center;
+  color: $green;
+}
+
+.computer-dice2-value {
+  font-size: xx-large;
+}
+
+.last_box_inside_game_container_box {
+  flex: 1 1 50%;
+  box-sizing: border-box;
+  border: 2px outset $main-color;
+  padding: 10px;
+}
+
+.score {
+  padding: 15px;
+  text-align: center;
+  margin-top: 0px;
+  background-color: $box-color-1;
+}
+
+.die_two {
+  background-color: $light-green-color;
+}
+
+.die_one {
+  background-color: $orange-color;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 14px auto;
+  width: fit-content;
+  height: 50px;
+}
+
+/* Button styling */
+.button-class {
+  padding: 10px 20px;
+  border: 5px outset $header-color;
+  border-radius: 5px;
+  background-color: $primary-color;
+  color: $dark-color;
+  font-weight: bolder;
+  margin-top: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Button hover effect */
+.button-class:hover {
+  background-color: $primary-color-hover;
+  transform: scale(1.05);
+  border: 7px inset $dark-color;
+  padding: 14px 26px;
+}
+
+.button-class:active {
+  background-color: $primary-color-active;
+  transform: scale(0.95);
+  border: 5px inset $header-color;
+}
+
+@media (min-width: 500px) and (max-width: 560px) {
+  .header_container {
+    font-size: 1.4em;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Player_data_container_box {
+    flex: 1 1 90%;
+  }
+
+  .button-container {
+    flex-direction: column;
+  }
+
+  .button-container .button-class {
+    margin-bottom: 10px;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
+
+/* Responsive Styles for viewports 380px to 499px */
+@media (min-width: 380px) and (max-width: 499px) {
+  body {
+    font-size: 14px;
+  }
+
+  nav ul li a {
+    font-size: small;
+  }
+
+  main {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .Player_data_container_box {
+    flex: 1 1 50%;
+    margin-bottom: 15px;
+    padding: 15px;
+  }
+
+  .button-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+  }
+
+  .button-container .button-class {
+    flex: 1 1 45%;
+    margin-bottom: 8px;
+    padding: 8px 15px;
+    font-size: 13px;
+    margin: 5px;
+  }
+
+  .popup {
+    width: 85%;
+    padding: 10px;
+  }
+
+  .popup .button {
+    width: 100%;
+  }
+
+  footer {
+    padding: 15px;
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 1em;
+  }
+
+  .decoration {
+    padding: 12px;
+    margin-top: 8px;
+  }
+
+  .section-header {
+    padding: 15px;
+  }
+
+  .show-hide-button {
+    padding: 4px 7px;
+    font-size: 13px;
+  }
+
+  ul li {
+    margin-bottom: 8px;
+  }
+
+  .main_header_players {
+    font-size: 1.3em;
+  }
+
+  .dice_info_first_container,
+  .dice_info_second_container {
+    gap: 8px;
+  }
+
+  .dice_info_box {
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  .dice_info_box p {
+    font-size: 1em;
+  }
+
+  .score {
+    font-size: 1.1em;
+    padding: 12px;
+  }
+
+  .popup-content {
+    padding: 12px;
+  }
+
+  .popup h3 {
+    font-size: 22px;
+  }
+
+  .popup p {
+    font-size: 16px;
+  }
+
+  .popup .button {
+    padding: 4px 7px;
+    font-size: 14px;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin: 14px auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .header_container {
+    font-size: 1.3em;
+  }
+
+  .Player_data_container_box {
+    flex: 1 1 50%;
+    margin: 8px;
+    padding: 9px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  main {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script src="./scripts/diceGame.js"></script>
+</head>
+<body>
+    <div id="game-container">
+        <header class="header_container">
+            <div>
+                <h1>&#x2680; &#x2681; &#x2682;</h1>
+            </div>
+            <div>
+                <h1>Dice Game</h1>
+                <h5>Author: Mst Zinat Rehana</h5>
+            </div>
+            <div>
+                <h1>&#x2683; &#x2684; &#x2685;</h1>
+            </div>
+        </header>
+    
+        <main class="game_container_box">
+            <section class="Player_data_container_box">
+                <h2 class="main_header_players">You</h2>
+                <div class="dice_info_first_container">
+                    <div class="dice_info_second_container">
+                        <div>
+                            <h3>Your Dice</h3>
+                        </div>
+
+                        <div class="dice_third_container">
+                            <div class="last_box_inside_game_container_box die_one">
+                                <p>Dice #1</p>
+                                <p id="player-dice1-value">&#x1F3B2;</p>
+                            </div>
+    
+                            <div class="last_box_inside_game_container_box die_one">
+                                <p>Dice #2</p>
+                                <p id="player-dice2-value">&#x1F3B2;</p>
+                            </div>
+                        </div>
+
+                    </div>
+    
+                    <div class="dice_info_second_container">
+                        <div>
+                            <h3>Score</h3>
+                        </div>
+
+                        <div class="dice_third_container">
+                            <div class="score last_box_inside_game_container_box" id="player-round-score">
+                                Round Score: 0
+                            </div>
+                            <div class="score last_box_inside_game_container_box" id="player-total-score">
+                                Total Score: 0
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Missing closing div added here -->
+            </section>
+    
+            <section class="Player_data_container_box">
+                <h2 class="main_header_players">Opponent</h2>
+                <div class="dice_info_first_container">
+                    <div class="dice_info_second_container">
+                        <div>
+                            <h3>Opponent's Dice</h3>
+                        </div>
+
+                        <div class="dice_third_container">
+                            <div class="last_box_inside_game_container_box die die_two">
+                                <p>Dice #1</p>
+                                <p id="computer-dice1-value">&#x1F3B2;</p>
+                            </div>
+    
+                            <div class="last_box_inside_game_container_box die_two">
+                                <p>Dice #2</p>
+                                <p id="computer-dice2-value" class="computer-dice2-value">&#x1F3B2;</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="dice_info_second_container">
+                        <div>
+                            <h3>Score</h3>
+                        </div>
+                        <div class="dice_third_container">
+                            <div class="score last_box_inside_game_container_box" id="computer-round-score">
+                                Round Score: 0
+                            </div>
+                            <div class="score last_box_inside_game_container_box" id="computer-total-score">
+                                Total Score: 0
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="button_section">
+            <div class="button-container">
+                <button id="roll-button" onclick="rollDice()" class="button button-class">Roll Dice</button>
+                <button id="new-game-button" onclick="newGame()" class="button button-class">New Game</button>
+            </div>
+            </section>
+        
+            <div id="result" class="result-class"></div>
+            
+            <div id="how-to-play-section"  class="instruction-class"></div>
+            <div id="rules-section" class="instruction-class"></div>
+
+            
+            <div id="overlay"></div>
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <button class="close" onclick="closePopup()">×</button>
+                    <h3>Game Over</h3>
+                    <p id="popup-message"></p>
+                    <button class="button" onclick="closePopup()">OK</button>
+                </div>
+            </div>
+        </main>
+    
+        <footer>
+            <p>&copy;<span>COMP-2132</span></p>
+        </footer>
+    </div>
+</body>
+</html>
